@@ -10,16 +10,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserResponse {
-    private Integer userId;
-    private String uuid;
+//    private Integer userId;
+//    private String uuid;
     private String username;
     private String email;
     private String password;
     private Integer isActive;
     private Integer logged;
     private String role;
-    private Date dateLastModified;
-    private Date dateCreated;
+//    private Date dateLastModified;
+//    private Date dateCreated;
 
 
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRequest {
-    private Integer userId;
+//    private Integer userId;
     private String uuid;
     private String username;
     private String email;
@@ -18,8 +18,8 @@ public class UserRequest {
     private Integer isActive;
     private Integer logged;
     private String role;
-    private Date dateLastModified;
-    private Date dateCreated;
+//    private Date dateLastModified;
+//    private Date dateCreated;
 
 
 }

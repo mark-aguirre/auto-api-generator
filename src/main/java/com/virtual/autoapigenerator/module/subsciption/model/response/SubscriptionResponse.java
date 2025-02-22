@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubscriptionResponse {
-    private Integer subscriptionId;
+//    private Integer subscriptionId;
     private String userUuid;
     private Integer planId;
     private LocalDateTime startDate;
@@ -20,8 +20,8 @@ public class SubscriptionResponse {
     private String paymentMethod;
     private Double amount;
     private String type;
-    private LocalDateTime updatedAt;
-    private LocalDateTime createdAt;
+//    private LocalDateTime updatedAt;
+//    private LocalDateTime createdAt;
 
 
 }

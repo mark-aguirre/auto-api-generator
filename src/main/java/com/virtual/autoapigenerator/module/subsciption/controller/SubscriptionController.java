@@ -30,7 +30,6 @@ public class SubscriptionController {
 
     @PostMapping
     public SubscriptionResponse create(@RequestBody SubscriptionRequest request) {
-
         return service.save(request);
     }
 
