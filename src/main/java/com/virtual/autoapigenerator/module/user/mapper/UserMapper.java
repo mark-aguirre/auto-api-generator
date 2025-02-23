@@ -11,7 +11,5 @@ public interface UserMapper {
 
     UserResponse toResponse(User entity);
     User toEntity(UserRequest dto);
-
-    // Add the missing method:
     void updateFromDto(UserRequest request, @MappingTarget User entity); // Important!
 }

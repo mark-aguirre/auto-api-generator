@@ -17,6 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @ControllerAdvice
@@ -28,7 +29,7 @@ public class GlobalExceptionHandler {
         String timestamp = LocalDateTime.now().format(FORMATTER);
         String message = ex.getMessage();
 
-        ErrorResponse errorResponse = new ErrorResponse(timestamp, errorType, message, path,status.value());
+        ErrorResponse errorResponse = new ErrorResponse(timestamp, errorType, message, path, status.value());
         return new ResponseEntity<>(errorResponse, status);
     }
 
@@ -68,6 +69,8 @@ public class GlobalExceptionHandler {
         private int status;
 
     }
+
+
 
 
     private String getRequestPath() {

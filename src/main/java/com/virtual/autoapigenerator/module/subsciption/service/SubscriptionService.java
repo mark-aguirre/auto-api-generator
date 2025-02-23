@@ -13,11 +13,15 @@ import lombok.RequiredArgsConstructor;
 
 
 @Service
-@RequiredArgsConstructor
 public class SubscriptionService {
 
     private final SubscriptionRepository repository;
     private final SubscriptionMapper mapper;
+
+    public SubscriptionService(SubscriptionRepository repository, SubscriptionMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<SubscriptionResponse> findAll() {
         return repository.findAll()

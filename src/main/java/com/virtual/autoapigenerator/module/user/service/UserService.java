@@ -14,11 +14,15 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository repository;
     private final UserMapper mapper;
+
+    public UserService(UserRepository repository, UserMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
 
     public List<UserResponse> findAll() {

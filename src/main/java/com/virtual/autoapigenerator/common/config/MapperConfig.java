@@ -16,6 +16,7 @@ public class MapperConfig {
 
     @Bean
     public UserMapper userMapper() {
+
         return Mappers.getMapper(UserMapper.class);
     }
 }

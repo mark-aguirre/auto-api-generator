@@ -1,5 +1,7 @@
 package com.virtual.autoapigenerator.module.user.controller;
 
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.virtual.autoapigenerator.module.user.service.UserService;
 import com.virtual.autoapigenerator.module.user.model.request.UserRequest;
@@ -10,12 +12,13 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/user")
 public class UserController {
 
     private final UserService service;
-
+    public UserController(UserService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public List<UserResponse> findAll() {
@@ -28,16 +31,7 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponse create(@RequestBody UserRequest user) {
-
-//        user.setUuid("2454545");
-//        user.setUsername("john");
-//        user.setEmail("john@gmail.com");
-//        user.setPassword("123456");
-//        user.setIsActive(1);
-//        user.setLogged(1);
-//        user.setRole("admin");
-
+    public UserResponse create(@Valid @RequestBody UserRequest user) {
         return service.save(user);
     }
 

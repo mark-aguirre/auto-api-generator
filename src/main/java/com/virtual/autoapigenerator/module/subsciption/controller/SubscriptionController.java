@@ -10,13 +10,15 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/subscription")
 public class SubscriptionController {
 
     private final SubscriptionService service;
 
-    
+    public SubscriptionController(SubscriptionService service) {
+        this.service = service;
+    }
+
 
     @GetMapping
     public List<SubscriptionResponse> findAll() {
