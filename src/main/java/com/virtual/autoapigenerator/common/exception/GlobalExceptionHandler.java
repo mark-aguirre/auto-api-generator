@@ -28,9 +28,6 @@ public class GlobalExceptionHandler {
         String timestamp = LocalDateTime.now().format(FORMATTER);
         String message = ex.getMessage();
 
-        // Consider logging the full stack trace for debugging purposes.  Don't expose it directly in the response in production.
-        // ex.printStackTrace();  // Log this!
-
         ErrorResponse errorResponse = new ErrorResponse(timestamp, errorType, message, path,status.value());
         return new ResponseEntity<>(errorResponse, status);
     }
@@ -52,7 +49,6 @@ public class GlobalExceptionHandler {
         for (FieldError error : ex.getBindingResult().getFieldErrors()) {
             errors.put(error.getField(), error.getDefaultMessage());
         }
-
         // For validation errors, you might want a more structured error message.
         String message = "Validation failed for some fields: " + errors.toString(); // Or customize as needed.
 
