@@ -59,8 +59,6 @@ public class GlobalExceptionHandler {
 
     // Helper class for the error response
     @Getter
-    @Setter
-    @AllArgsConstructor
     public static class ErrorResponse {
         private String timestamp;
         private String errorType;
@@ -68,9 +66,19 @@ public class GlobalExceptionHandler {
         private String path;
         private int status;
 
+        public ErrorResponse(String timestamp, String errorType, String message, String path, int status) {
+            this.timestamp = timestamp;
+            this.errorType = errorType;
+            this.message = message;
+            this.path = path;
+            this.status = status;
+        }
+
+        //special case for JSON parse error message to remo the JSON parse error: prefix
+        public String getMessage() {
+            return message.replace("JSON parse error:", "");
+        }
     }
-
-
 
 
     private String getRequestPath() {
